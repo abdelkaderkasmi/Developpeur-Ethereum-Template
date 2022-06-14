@@ -15,7 +15,7 @@ contract Voting is Ownable{
     //compte votes blancs
     uint public countVoteBlanc;
     
-    //nombre total de votant enregistrés
+    //nombre total de votants enregistrés
     uint private totalRegistered;
     
     //nombre d'enregistré ayant voté, pour le caclul du taux de participation/abstention
@@ -99,6 +99,7 @@ contract Voting is Ownable{
             countVoteBlanc++;
         
         totalRegisterdVoted ++;
+        WhiteList[msg.sender].hasVoted = true;
         emit Voted(msg.sender, _proposalId);
     }
 
